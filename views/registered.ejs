@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registered Events - Community Pulse</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Your Registered Events</h1>
+    <a href="/dashboard">← Back to Dashboard</a>
+  </header>
+  <main>
+    <% if (events.length === 0) { %>
+      <p>You haven’t registered for any events yet.</p>
+    <% } else { %>
+      <ul class="event-list">
+        <% events.forEach(event => { %>
+          <li class="event-card">
+            <h3><%= event.title %></h3>
+            <p><strong>Date:</strong> <%= event.date %></p>
+            <p><strong>Location:</strong> <%= event.location %></p>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </main>
+</body>
+</html>

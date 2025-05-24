@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Events - Community Pulse</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>My Hosted Events</h1>
+    <a href="/dashboard">← Back to Dashboard</a>
+  </header>
+
+  <main>
+    <section>
+      <h2>Hosted Events</h2>
+      <% if (events.length === 0) { %>
+        <p>No hosted events.</p>
+      <% } else { %>
+        <ul class="event-list">
+          <% events.forEach(event => { %>
+            <li class="event-card">
+              <h3><%= event.title %></h3>
+              <p><strong>Type:</strong> <%= event.type %></p>
+              <p><strong>Date:</strong> <%= event.date %></p>
+              <p><strong>Location:</strong> <%= event.location %></p>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </section>
+
+    <section style="margin-top: 40px;">
+      <h2>Add New Event</h2>
+      <form action="/events/host" method="POST" class="form-container">
+        <input type="text" name="title" placeholder="Event Name" required>
+        <input type="text" name="type" placeholder="Type (e.g. Class, Sale)" required>
+        <input type="date" name="date" required>
+        <input type="text" name="location" placeholder="Address" required>
+        <input type="hidden" name="hostedBy" value="<%= user.email %>">
+        <button type="submit">Add Event</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

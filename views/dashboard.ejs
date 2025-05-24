@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Community Pulse</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome, <%= user.name %></h1>
+    <nav>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/events/registered">Registered Events</a>
+      <a href="/events/explore">Explore Events</a>
+      <a href="/events/myevents">My Events</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Choose an option</h2>
+    <div class="dashboard-boxes">
+      <a href="/events/registered" class="box">Registered Events</a>
+      <a href="/events/explore" class="box">Explore Events</a>
+      <a href="/events/myevents" class="box">My Events</a>
+    </div>
+  </main>
+</body>
+</html>
